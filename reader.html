@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King James Bible</title>
+
+    <link rel="stylesheet" href="css/reader.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header class="reader-header">
+
+        <button id="prevChapter" class="nav-btn">&lt;</button>
+
+        <div class="chapter-info">
+
+            <span id="bookName">Genesis</span>
+
+            <span id="chapterNumber">1</span>
+
+        </div>
+
+        <button id="nextChapter" class="nav-btn">&gt;</button>
+
+    </header>
+
+    <!-- Bible Chapter -->
+    <main>
+
+        <div id="chapterContainer">
+
+            <!-- Verses will be inserted here -->
+
+        </div>
+
+    </main>
+
+    <script src="js/bible.js"></script>
+    <script src="js/reader.js"></script>
+    <script>
+
+if ("serviceWorker" in navigator) {
+
+    navigator.serviceWorker.register(
+        "service-worker.js"
+    );
+
+}
+
+</script>
+
+</body>
+</html>

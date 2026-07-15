@@ -1,0 +1,10 @@
+{
+  "name": "Holy Bible - King James Version",
+  "short_name": "KJV Bible",
+  "description": "Offline King James Version Bible Reader",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0056b3",
+  "orientation": "portrait"
+}

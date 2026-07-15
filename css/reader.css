@@ -1,0 +1,216 @@
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   BODY
+========================================== */
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #ffffff;
+    color: #222222;
+    line-height: 1.8;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.reader-header {
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #ffffff;
+    border-bottom: 1px solid #dddddd;
+
+    padding: 12px 18px;
+
+    z-index: 100;
+}
+
+/* ==========================================
+   NAVIGATION BUTTONS
+========================================== */
+
+.nav-btn {
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #0056b3;
+    color: white;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: background 0.2s;
+
+}
+
+.nav-btn:hover {
+
+    background: #003f87;
+
+}
+
+/* ==========================================
+   BOOK & CHAPTER
+========================================== */
+
+.chapter-info {
+
+    text-align: center;
+
+}
+
+#bookName {
+
+    display: block;
+
+    font-size: 1.25rem;
+
+    font-weight: bold;
+
+}
+
+#chapterNumber {
+
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 1rem;
+
+    color: #666666;
+
+}
+
+/* ==========================================
+   READING AREA
+========================================== */
+
+main {
+
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 25px 20px 50px;
+
+}
+
+/* ==========================================
+   VERSES
+========================================== */
+
+.verse {
+
+    padding: 5px 8px;
+
+    margin-bottom: 4px;
+
+    border-radius: 5px;
+
+}
+
+/* ==========================================
+   VERSE NUMBER
+========================================== */
+
+.verse-number {
+
+    color: #0066cc;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    margin-right: 8px;
+
+}
+
+/* ==========================================
+   VERSE TEXT
+========================================== */
+
+.verse-text {
+
+    color: #222222;
+
+}
+
+/* ==========================================
+   HIGHLIGHTED VERSE
+========================================== */
+
+.verse.highlight {
+
+    background: #fff59d;
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+
+    body {
+
+        font-size: 18px;
+
+    }
+
+    .reader-header {
+
+        padding: 10px 12px;
+
+    }
+
+    .nav-btn {
+
+        width: 38px;
+
+        height: 38px;
+
+        font-size: 22px;
+
+    }
+
+    #bookName {
+
+        font-size: 1.1rem;
+
+    }
+
+    #chapterNumber {
+
+        font-size: 0.95rem;
+
+    }
+
+    main {
+
+        padding: 20px 15px 40px;
+
+    }
+
+}

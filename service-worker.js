@@ -1,4 +1,4 @@
-const CACHE_NAME = "kjv-bible-v5";
+const CACHE_NAME = "kjv-bible-v6";
 
 const APP_FILES = [
 
@@ -12,6 +12,7 @@ const APP_FILES = [
     "./js/books.js",
     "./js/bible.js",
     "./js/reader.js",
+    "./js/downloader.js",
 
     "./manifest.json",
 
@@ -32,29 +33,7 @@ self.addEventListener("install", event => {
 
             const cache = await caches.open(CACHE_NAME);
 
-            // Cache the application shell
             await cache.addAll(APP_FILES);
-
-            // Read books.json
-            const response = await fetch("./data/books.json");
-
-            const books = await response.json();
-
-            // Cache every Bible book
-            await Promise.all(
-
-                books.map(book =>
-
-                    cache.add(`./data/books/${book.file}`)
-                    .catch(() => {
-
-                        console.error("Could not cache:", book.file);
-
-                    })
-
-                )
-
-            );
 
             self.skipWaiting();
 
@@ -124,7 +103,10 @@ self.addEventListener("fetch", event => {
 
                 const cache = await caches.open(CACHE_NAME);
 
-                cache.put(event.request, network.clone());
+                cache.put(
+                    event.request,
+                    network.clone()
+                );
 
                 return network;
 
@@ -132,13 +114,13 @@ self.addEventListener("fetch", event => {
 
             catch {
 
-                return new Response("Offline", {
-
-                    status: 503,
-
-                    statusText: "Offline"
-
-                });
+                return new Response(
+                    "Offline",
+                    {
+                        status: 503,
+                        statusText: "Offline"
+                    }
+                );
 
             }
 

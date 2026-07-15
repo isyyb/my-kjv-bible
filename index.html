@@ -21,6 +21,14 @@
 
 <main>
 
+    <button id="downloadBible">
+        Download Bible Offline
+    </button>
+
+    <div id="downloadStatus"></div>
+
+    
+    
     <section>
 
         <h3>OLD TESTAMENT</h3>
@@ -48,7 +56,9 @@
 </main>
 
 <script src="js/books.js"></script>
-    <script>
+<script src="js/downloader.js"></script>
+
+<script>
 
 if ("serviceWorker" in navigator) {
 

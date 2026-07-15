@@ -14,6 +14,8 @@
     <!-- Header Navigation -->
     <header class="reader-header">
 
+        <button id="homeBtn" class="nav-btn">📖</button>
+
         <button id="prevChapter" class="nav-btn">&lt;</button>
 
         <div class="chapter-info">
@@ -28,6 +30,7 @@
 
     </header>
 
+
     <!-- Bible Chapter -->
     <main>
 
@@ -39,19 +42,32 @@
 
     </main>
 
+
     <script src="js/bible.js"></script>
     <script src="js/reader.js"></script>
+
+
     <script>
 
-if ("serviceWorker" in navigator) {
+    // Service Worker Registration
+    if ("serviceWorker" in navigator) {
 
-    navigator.serviceWorker.register(
-        "service-worker.js"
-    );
+        navigator.serviceWorker.register(
+            "service-worker.js"
+        );
 
-}
+    }
 
-</script>
+
+    // Return to Book List
+    document.getElementById("homeBtn").addEventListener("click", () => {
+
+        window.location.href = "index.html";
+
+    });
+
+    </script>
+
 
 </body>
 </html>

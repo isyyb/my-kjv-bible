@@ -8,6 +8,7 @@
     box-sizing: border-box;
 }
 
+
 /* ==========================================
    BODY
 ========================================== */
@@ -19,17 +20,20 @@ body {
     line-height: 1.8;
 }
 
+
 /* ==========================================
    HEADER
 ========================================== */
 
 .reader-header {
+
     position: sticky;
     top: 0;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
 
     background: #ffffff;
     border-bottom: 1px solid #dddddd;
@@ -37,7 +41,9 @@ body {
     padding: 12px 18px;
 
     z-index: 100;
+
 }
+
 
 /* ==========================================
    NAVIGATION BUTTONS
@@ -47,6 +53,8 @@ body {
 
     width: 42px;
     height: 42px;
+
+    flex-shrink: 0;
 
     border: none;
     border-radius: 6px;
@@ -63,11 +71,13 @@ body {
 
 }
 
+
 .nav-btn:hover {
 
     background: #003f87;
 
 }
+
 
 /* ==========================================
    BOOK & CHAPTER
@@ -75,9 +85,14 @@ body {
 
 .chapter-info {
 
+    flex: 1;
+
     text-align: center;
 
+    overflow: hidden;
+
 }
+
 
 #bookName {
 
@@ -87,7 +102,14 @@ body {
 
     font-weight: bold;
 
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
 }
+
 
 #chapterNumber {
 
@@ -100,6 +122,7 @@ body {
     color: #666666;
 
 }
+
 
 /* ==========================================
    READING AREA
@@ -115,6 +138,7 @@ main {
 
 }
 
+
 /* ==========================================
    VERSES
 ========================================== */
@@ -128,6 +152,7 @@ main {
     border-radius: 5px;
 
 }
+
 
 /* ==========================================
    VERSE NUMBER
@@ -147,6 +172,7 @@ main {
 
 }
 
+
 /* ==========================================
    VERSE TEXT
 ========================================== */
@@ -156,6 +182,7 @@ main {
     color: #222222;
 
 }
+
 
 /* ==========================================
    HIGHLIGHTED VERSE
@@ -167,11 +194,13 @@ main {
 
 }
 
+
 /* ==========================================
    MOBILE
 ========================================== */
 
 @media (max-width: 600px) {
+
 
     body {
 
@@ -179,38 +208,46 @@ main {
 
     }
 
+
     .reader-header {
 
-        padding: 10px 12px;
+        padding: 10px 8px;
+
+        gap: 6px;
 
     }
+
 
     .nav-btn {
 
-        width: 38px;
+        width: 36px;
 
-        height: 38px;
+        height: 36px;
 
-        font-size: 22px;
+        font-size: 20px;
 
     }
+
 
     #bookName {
 
-        font-size: 1.1rem;
+        font-size: 1.05rem;
 
     }
+
 
     #chapterNumber {
 
-        font-size: 0.95rem;
+        font-size: 0.9rem;
 
     }
+
 
     main {
 
         padding: 20px 15px 40px;
 
     }
+
 
 }

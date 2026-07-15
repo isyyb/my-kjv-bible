@@ -2,18 +2,20 @@ const CACHE_NAME = "kjv-bible-v1";
 
 const FILES_TO_CACHE = [
 
-    "/",
-    "/index.html",
-    "/reader.html",
+    "./",
+    "./index.html",
+    "./reader.html",
 
-    "/css/style.css",
-    "/css/reader.css",
+    "./css/style.css",
+    "./css/reader.css",
 
-    "/js/books.js",
-    "/js/bible.js",
-    "/js/reader.js",
+    "./js/books.js",
+    "./js/bible.js",
+    "./js/reader.js",
 
-    "/data/books.json"
+    "./manifest.json",
+
+    "./data/books.json"
 
 ];
 

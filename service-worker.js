@@ -1,4 +1,4 @@
-const CACHE_NAME = "kjv-bible-v2";
+const CACHE_NAME = "kjv-bible-v3";
 
 const FILES_TO_CACHE = [
 
@@ -128,7 +128,40 @@ self.addEventListener("fetch", event => {
         caches.match(event.request)
         .then(response => {
 
-            return response || fetch(event.request);
+            if (response) {
+
+                return response;
+
+            }
+
+
+            return fetch(event.request)
+
+            .then(networkResponse => {
+
+
+                return caches.open(CACHE_NAME)
+
+                .then(cache => {
+
+
+                    cache.put(
+
+                        event.request,
+
+                        networkResponse.clone()
+
+                    );
+
+
+                    return networkResponse;
+
+
+                });
+
+
+            });
+
 
         })
 

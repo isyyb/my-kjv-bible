@@ -3,78 +3,78 @@ const downloadStatus = document.getElementById("downloadStatus");
 
 const CACHE_NAME = "kjv-bible-v6";
 
-
-// ===============================
-// DOWNLOAD BIBLE
-// ===============================
-
 downloadButton.addEventListener("click", async () => {
 
     downloadButton.disabled = true;
 
-    downloadStatus.textContent = "Preparing Bible download...";
-
-
     try {
 
-        const response = await fetch("./data/books.json");
-
-        const books = await response.json();
-
+        downloadStatus.textContent = "Opening cache...";
 
         const cache = await caches.open(CACHE_NAME);
 
+        console.log("Cache opened:", CACHE_NAME);
+
+        downloadStatus.textContent = "Loading books list...";
+
+        const response = await fetch("./data/books.json");
+
+        console.log("books.json status:", response.status);
+
+        const books = await response.json();
+
+        console.log("Books found:", books.length);
 
         let count = 0;
 
-
         for (const book of books) {
+
+            const url = "./data/books/" + book.file;
 
             try {
 
-                await cache.add(
-                    "./data/books/" + book.file
-                );
+                downloadStatus.textContent =
+                    `Downloading ${book.name} (${count + 1}/${books.length})`;
 
+                console.log("Caching:", url);
+
+                const r = await fetch(url);
+
+                console.log(url, r.status);
+
+                if (!r.ok) {
+
+                    throw new Error("HTTP " + r.status);
+
+                }
+
+                await cache.put(url, r.clone());
 
                 count++;
 
-
-                downloadStatus.textContent =
-                    `Downloading ${book.name} (${count}/${books.length})`;
-
-
             }
 
-            catch (error) {
+            catch (err) {
 
-                console.error(
-                    "Failed:",
-                    book.file,
-                    error
-                );
+                console.error("FAILED:", url, err);
 
             }
 
         }
 
-
         downloadStatus.textContent =
-            "Bible download completed. You can now read offline.";
-
+            `Finished. Cached ${count} of ${books.length} books.`;
 
     }
 
-    catch (error) {
+    catch (err) {
 
-        console.error(error);
-
+        console.error(err);
 
         downloadStatus.textContent =
-            "Download failed. Check your internet connection.";
+            "Download failed.";
 
     }
-
 
     downloadButton.disabled = false;
 
